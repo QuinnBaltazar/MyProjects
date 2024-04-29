@@ -1,0 +1,76 @@
+""" Programer: Quinn Baltazar
+    Date: 4/17/24
+    Version: 1.0
+    Goal of program is to make a pet class and make setters and getters for that class
+"""
+
+#start if the pet class
+
+class Pet:
+
+    #setting the default values for the class
+
+    def __init__(self ):
+        self.__name = ""
+        self.__type = ""
+        self.__age = 0
+
+    #setter function for the class pet that sets the pets name         
+
+    def setName(self, name):
+        self.__name = name
+
+    #setter function for the age function
+    
+    def setAge(self, age):
+        self.__age = age
+
+    #setter function for the type of pet 
+
+    def setType(self, type):
+        self.__type = type
+
+    #gets the name of the pet
+
+    def getName(self):
+        return self.__name
+    
+    #gets the age of the pet
+    
+    def getAge(self):
+        return self.__age
+    
+    #gets the type of the pet
+    
+    def getType(self):
+        return self.__type
+    
+    #start of the mian
+    
+def main ():
+
+    #getting input for name, age, and type
+
+    age = input("what is the age of your animal: ")
+    name = input("what is the name of your animal: ")
+    type = input('what type of animal is it: ')
+
+    #initiazing the pet clas
+
+    my_animal =Pet()
+
+    #setting the varribles for class pet 
+
+    my_animal.setAge(age)
+    my_animal.setName(name)
+    my_animal.setType(type)
+
+    #returning the new values for the varribles 
+    
+    print("your animals age is " , my_animal.getAge())
+    print(" your animals name is: " , my_animal.getName())
+    print("your animals type is: ",  my_animal.getType())
+
+#clalling main 
+
+main()

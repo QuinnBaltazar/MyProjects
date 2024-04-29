@@ -1,0 +1,31 @@
+/*  Programer: Quinn
+    Date: 10/1/23
+    Version: 3.0
+    Goal of program is to output pattern
+*/
+#include <iostream>
+using namespace std;
+int main() {
+  //declaring varibles
+  string plus, plus2;
+  int count, count2;
+  //setting strings
+  plus =  "+         ";
+  plus2 = "++++++++++";
+  //setting counts to track index of string
+  count = 1;
+  count2 = 9;
+  //doing loop for string of output
+  while (count2 != -1){
+    //displaying pattern
+    cout<<plus<< "       "<<plus2<<endl;
+    //replacing the indexs with rather a space or a plus for pattern
+    plus[count] = '+';
+    plus2[count2] = ' ';
+    //addinf or subtrackting from count to keep track of index
+    count++;
+    count2--;
+    
+  }
+ 
+}

@@ -1,0 +1,158 @@
+""" Programer: Quinn Baltazar
+    Date: 4/27/24
+    Version: 1.0
+    Goal of program is to make a shape clas and pass functions and varibles with inheritance 
+"""
+
+
+#start of class shape
+
+class Shape:
+
+    #default augments and passing self to the function
+
+    def __init__(self, area=0, volume=0):
+        self.area = area
+        self.volume = volume
+
+        #first function of the class
+
+    def printShapeName(self):
+        print("Shape")
+
+        #next three functions that can be overridden by any furture classes
+
+    def printing(self):
+        pass
+
+    def calcArea(self):
+        return 0
+
+    def calcVolume(self):
+        return 0
+
+#start of classs point that inherits all the previous funcitions and arguments 
+
+class Point(Shape):
+
+#giving the class self and adding two more augments
+
+    def __init__(self, x, y):
+
+#super function makes class inherit the previous code
+
+        super().__init__()
+        self.__x = x
+        self.__y = y
+
+#redefining the function printing
+
+    def printing(self):
+        print(f"Point: ({self.__x}, {self.__y})")
+
+        #next two functions return 0
+
+    def calcArea(self):
+        return 0
+
+    def calcVolume(self):
+        return 0
+
+#start of class cirlce tha inherits points functions and shapes funtions 
+
+class Circle(Point):
+
+#giving the function self and a new augment radius 
+
+    def __init__(self, x, y, radius):
+
+#this super function tells this class to look in point on what to do with x and y
+
+        super().__init__(x, y)
+        self.radius = radius
+
+        #redefining calc area
+
+    def calcArea(self):
+        return 3.14 * self.radius * self.radius
+
+#making two new functions that have to do with radius which is a new augment
+
+    def getRadius(self):
+        return self.radius
+
+    def setRadius(self, radius):
+        self.radius = radius
+
+#start of class cylinder which inherits from all previous classes
+
+class Cylinder(Circle):
+
+#giving function self and the new augment height 
+
+    def __init__(self, x, y, radius, height):
+
+#telling class to look at all previous classes on what to do with every augment but height
+
+        super().__init__(x, y, radius)
+        self.height = height
+
+        #redefinig the next two functions for the clylinder class
+
+    def calcArea(self):
+        return 2 * 3.14 * self.getRadius() * (self.getRadius() + self.height)
+
+    def calcVolume(self):
+        return 3.14 * self.getRadius() * self.getRadius() * self.height
+    
+    #making setters and getters for the new augment height
+
+    def getHeight(self):
+        return self.height
+
+    def setHeight(self, height):
+        self.height = height
+
+#start of main
+
+def main():
+
+#creating objects form the three classes
+
+    point = Point(2, 3)
+    circle = Circle(5, 6, 7)
+    cylinder = Cylinder(6, 7, 8, 9)
+
+#printing the point stuff
+
+    point.printShapeName()
+    point.printing()
+    print("Area of Point:", point.calcArea())
+    print("Volume of Point:", point.calcVolume())
+    print()
+
+    #printing the circle stuff
+
+    circle.printShapeName()
+    circle.printing()
+    print("Area of Circle:", circle.calcArea())
+    print("Radius of Circle:", circle.getRadius())
+    circle.setRadius(6)
+    print("New Radius of Circle:", circle.getRadius())
+    print()
+
+    #printing thr cylinder stuff
+
+    cylinder.printShapeName()
+    cylinder.printing()
+    print("Area of Cylinder:", cylinder.calcArea())
+    print("Volume of Cylinder:", cylinder.calcVolume())
+    print("Height of Cylinder:", cylinder.getHeight())
+    cylinder.setHeight(10)
+    print("New Height of Cylinder:", cylinder.getHeight())
+
+
+    #calling main 
+
+
+main()

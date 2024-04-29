@@ -1,0 +1,43 @@
+
+""" Programmer: Quinn Baltazar
+ Date: 3/23/24
+ Version: 1.0
+Goal of program is to have a avg num file that can handle value errors and not openig file errors 
+"""
+#start of try block
+try:
+  #declaring varibles
+  randList = []
+  finalList =[]
+  #opening file 
+  infile = open('rand.txt', 'r')
+  #putting the strig calues of the numbers into a list
+  randList = infile
+  #appending string list to a new list and making them ints
+  for x in randList:
+   #appending items 
+   finalList.append(int(x))
+   #declaring varibles
+   r = 0
+  total = 0
+  #looping through to find the avg of the numbers by summing them all up
+  for x in finalList:
+    #summing up values
+    total += x
+    #starting count to divide by total in list
+    r += 1
+    #getting final total avg
+  total = total/r  
+  #printing result
+  print('avg of list was ', total)
+  #vlaue error decleration
+except ValueError:
+  print('there was a value error ')
+  #file error decleration 
+except IOError:
+   print('file cannot be opened')
+
+ 
+
+
+

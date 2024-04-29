@@ -1,0 +1,83 @@
+""" Programer: Quinn Baltazar
+    Date: 4/27/24
+    Version: 1.0
+    Goal of program is to make a Employee clas and pass functions and varibles with inheritance 
+"""
+
+#start of Employee class
+
+class Employee:
+
+#giving the class self and default augments
+
+    def __init__(self, name="", number=0):
+        self.name = name
+        self.number = number
+
+        #start of setters and getters
+
+    def setName(self, name):
+        self.name = name
+
+    def getName(self):
+        return self.name
+
+    def setNum(self, num):
+        self.number = num
+
+    def getNum(self):
+        return self.number
+
+#start of new class that inherits form employee class
+
+class ProductionWorker(Employee):
+
+#defining slef and deefault augments
+
+    def __init__(self, name="", number=0, shiftNum=0, pay=0):
+
+#telling class to go to previous class oto find out what the program should do with name and number
+
+        super().__init__(name, number)
+        self.shiftNum = shiftNum
+        self.pay = pay
+
+        #new setters and getters from the two new augments
+
+    def setPay(self, pay):
+        self.pay = pay
+
+    def getPay(self):
+        return self.pay
+
+    def setShiftNum(self, shiftNum):
+        self.shiftNum = shiftNum
+
+    def getShiftNum(self):
+        return self.shiftNum
+    
+#creation of a production worker
+
+my_employee = ProductionWorker()
+
+#getting user input
+
+name = input("What is the name of your employee: ")
+number = input("What is your employee number: ")
+pay = input("What is your employee's pay: ")
+shiftNum = input("What is your employee's shift number: ")
+
+#passing user inout to the object created
+
+my_employee.setName(name)
+my_employee.setNum(number)
+my_employee.setPay(pay)
+my_employee.setShiftNum(shiftNum)
+
+#printing the resalults after passing augments
+
+print("")
+print("Your employee name is " + my_employee.getName())
+print("Your number is: " + my_employee.getNum())
+print("Your pay is " + my_employee.getPay())
+print("Your shift number is " + my_employee.getShiftNum())

@@ -1,0 +1,35 @@
+/*  Programer: Quinn
+    Date: 12/4/23
+    Version: 1.0
+    Goal of program is to make dynamic array and populate it with the double of integer number from 1 to the size value
+*/
+
+#include <iostream>
+using namespace std; 
+//declaring function 
+int* doubleArray(int x){
+  //creating a pointer towards the array called arr
+  int* arr = new int[x];
+  //this loops through and doubles the index of each element in the array
+  for(int i=0; i<x; i++){
+    arr[i]= (2 * (i + 1));
+  }
+  //returns the dynamic array
+  return arr;
+}
+//start of main
+int main() {
+//declaring varribles
+int size;
+  //getting user input
+cout<<"Enter Array size: ";
+  //storing user input
+cin>>size;
+  //calling function
+int* arr = doubleArray(size);
+  //looping through and printing array 
+for(int i=0;i<size;i++){
+  cout<<arr[i]<<endl;
+}
+  
+}

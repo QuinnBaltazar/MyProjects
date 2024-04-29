@@ -1,0 +1,33 @@
+/*  Programer: Quinn
+    Date: 12/4/23
+    Version: 1.0
+    Goal of program is to make 2 movie objects and display them with a function
+*/
+#include <iostream>
+#include <string>
+using namespace std;
+//making movie structure 
+struct Movie{
+//setting constructors 
+ string title;
+ string director;
+ int runTime;
+ int year;
+};
+//function to display movie info
+void movieDispaly( Movie& movie){
+  //printing the information with . operand 
+  cout<<"The movies title is: "<<movie.title<<endl;
+  cout<<"The movies director is: "<<movie.director<<endl;
+  cout<<"The movies runtime is: "<<movie.runTime<<" minuets"<<endl;
+  cout<<"The movies year is: "<<movie.year<<endl<<endl;
+}
+//start of main
+int main() {
+  //creating the movie objects 
+  Movie movie = {"American Pycho", "Steven Spielberg", 136, 1990};
+  Movie movie2 = {"Ghostbusters","Ivan Reitman" ,105, 1984};
+  //function call 
+  movieDispaly(movie);
+  movieDispaly(movie2);
+}

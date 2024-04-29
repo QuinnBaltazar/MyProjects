@@ -1,0 +1,83 @@
+#imppoting sqlite 
+
+import sqlite3
+
+#establishing connection to database
+
+conn = sqlite3.connect('golfScore.db')
+
+#this is out command statment
+
+c = conn.cursor()
+
+#first execute command creating a table with rows first,last, and core with differing types for each row 
+
+c.execute("""CREATE TABLE golfScore (
+         first TEXT, 
+         last TEXT, 
+         score INTEGER
+) """)
+
+#inserting two new people into that same table 
+
+c.execute("""INSERT INTO golfScore VALUES ( 'Quinn' , 'Baltazar' , -14 )""")
+
+c.execute("INSERT INTO golfScore VALUES ('Danielle', 'Baltazar', 2) ")
+
+#tellinmg the program what to look for in the table so it can print it
+
+c.execute("SELECT * FROM golfScore WHERE last = 'Baltazar' ")
+
+#printing all the info related to the last name baltazar
+
+print(c.fetchall())
+
+#new table created
+
+c.execute("""CREATE TABLE golfCart (
+          id INTEGER,
+          numPassengers INTEGER,
+         hasClubs TEXT
+) """)
+
+#adding two people to the table 
+
+c.execute("INSERT INTO golfCart VALUES (12345, 2, 'YES')")
+
+c.execute("INSERT INTO golfCart VALUES (6789, 1, 'YES')")
+
+#looking for people who answered yes to clubs
+
+c.execute("SELECT * FROM golfCart WHERE hasClubs = 'YES' ")
+
+#printing resaults
+
+print(c.fetchall())
+
+#third table created 
+
+c.execute("""CREATE TABLE golfMember (
+          id INTEGER,
+          first TEXT,
+          last TEXT, 
+          tab INTEGER         
+)""")
+
+#adding two people to this table
+
+c.execute("INSERT INTO golfMember VALUES (12345, 'Quinn', 'Baltazar' , 100)")
+
+c.execute("INSERT INTO golfMember VALUES( 6789, 'Danielle' , 'Baltazar', 200)")
+
+#looling for people with last name baltazar
+
+c.execute("SELECT * FROM golfMember WHERE last = 'Baltazar' ")
+
+#printing resaults
+
+print(c.fetchall())
+
+#closing connection and commiting it to save it to memomry
+
+conn.commit()
+conn.close()

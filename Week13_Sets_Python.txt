@@ -1,0 +1,95 @@
+
+""" Programmer: Quinn Baltazar
+ Date: 4/8/24
+ Version: 1.0
+Goal of program is to use sets to determine what words are in files
+"""
+
+#function definition 
+
+def open_file():
+    
+   #opening file and then getting ten words from the user 
+
+    infile = open('string.txt', 'w')
+    count = 0
+    while(count < 10):
+     word = input('what words do you want in the file? ')
+     infile.write(word + '\n')
+     count += 1
+    infile.close()
+
+#function definition 
+
+def open_file2():
+    
+      #opening file and then getting ten words from the user 
+   
+    infile = open('string2.txt', 'w')
+    count = 0
+    while(count < 10):
+     word = input('what words do you want in the file_2? ')
+     infile.write(word + '\n')
+     count += 1
+    infile.close 
+
+#function definition 
+
+def compare():
+    
+   #opening files
+
+    infile = open('string.txt', 'r')
+    infile2 = open('string2.txt', 'r')
+
+   #transcribing the file words into lists
+
+    holder = []
+    holder2 = []
+    holder = infile.read().splitlines()
+    holder2 = infile2.read().splitlines()
+
+   #closing the files
+
+    infile.close()
+    infile2.close()
+
+   #putting the lists into sets
+
+    myset = set(holder)
+    myset2 = set(holder2)
+
+   #declaring sets that will hold the things I need to print
+
+    both = set()
+    not1st = set()
+    not2nd = set()
+
+   #looping through the sets and checking if words are in one or not the other or are in both and if they are there use the add() to put it into set
+
+    for x in myset:
+       if x in myset2:
+          both.add(x)
+       else:
+          not1st.add(x)
+    for x in myset2:
+       if x in myset:
+          both.add
+       else:
+          not2nd.add(x)
+
+   #printing resaults 
+
+    print('the first set contained: ', myset)
+    print('the second set contained: ', myset2)
+    print('the words in both files were: ' , both)
+    print('the words found in the first and not the second were: ', not1st)
+    print('the words found in the second and not the first were: ', not2nd)
+    print('the unique words in both of the files were: ', myset.union(myset2))
+
+#function calls
+          
+open_file()
+open_file2()
+compare()
+

@@ -1,0 +1,38 @@
+""" Programer: Quinn Baltazar
+    Date: 3/26/24
+    Version: 1.0
+    Goal of program is to make two matrixs and add them, subtract them, multiply them, and divide them
+"""
+
+#initializing the two matrixs 
+
+matrix1 = matrix(c(1:9), nrow = 3, ncol = 3, byrow = TRUE)
+martix2 = matrix(c(9:18), nrow = 3,ncol = 3, byrow =TRUE)
+
+#adding the two matrixs together and printing the resault 
+
+addition <- matrix1 +martix2
+cat('this is adding the two matrixs together: ', '\n')
+print(addition)
+
+#subtracting the two matrixs and printing the resault
+
+subtraction <- matrix1 - martix2
+cat('this is subtracting the two matrixs together: ', '\n')
+print(subtraction)
+
+#multiplying the two matrixs and printing the resault 
+
+multipliation <- matrix1 * martix2
+cat('resault of multiplying the two matrixs: ', '\n')
+print(multipliation)
+
+#dividng the two matrixs and printing the resault 
+
+division <- matrix1 / martix2
+cat('resault of dividing the two matrixs: ', '\n')
+print(division)
+
+
+
+
